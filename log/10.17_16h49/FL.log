@@ -1,0 +1,108 @@
+[INFO](2023/10/17/ 04:49:37 PM) 
+[WELCOME] Unfolding configurations...!
+[INFO](2023/10/17/ 04:49:37 PM) {'global_config': {'seed': 500, 'device': 'cuda:0', 'is_mp': True}}
+[INFO](2023/10/17/ 04:49:37 PM) {'data_config': {'data_path': './data/', 'save_img_path': '/mnt/sda/li/', 'dataset_name': 'MNIST', 'num_shards': 200, 'iid': False}}
+[INFO](2023/10/17/ 04:49:37 PM) {'fed_config': {'C': 0.1, 'K': 3, 'R': 30, 'E': 20, 'B': 8, 'criterion': 'DiceLoss', 'optimizer': 'torch.optim.Adam'}}
+[INFO](2023/10/17/ 04:49:37 PM) {'optim_config': {'lr': '2e-4', 'momentum': 0.9}}
+[INFO](2023/10/17/ 04:49:37 PM) {'init_config': {'init_type': 'xavier', 'init_gain': 1.0, 'gpu_ids': [0, 1, 2]}}
+[INFO](2023/10/17/ 04:49:37 PM) {'model_config': {'name': 'UNet', 'in_channels': 1, 'num_classes': 5}}
+[INFO](2023/10/17/ 04:49:37 PM) {'log_config': {'log_path': './log/10.17_16h49/', 'log_name': 'FL.log', 'tb_port': 5252, 'tb_host': '0.0.0.0'}}
+[INFO](2023/10/17/ 04:49:40 PM) [Round: 0000] ...successfully initialized model (# parameters: 7765541)!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0000] ...successfully created all 3 clients!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0000] ...successfully finished setup of all 3 clients!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0000] ...successfully transmitted models to all 3 clients!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0001] Select clients...!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0001] ...successfully transmitted models to 3 selected clients!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0001] Start updating selected client 0000...!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0001] Start updating selected client 0001...!
+[INFO](2023/10/17/ 04:49:41 PM) [Round: 0001] Start updating selected client 0002...!
+[INFO](2023/10/17/ 04:52:20 PM) 	[Client 0001] ...finished training!            
+	=> Tain loss: 0.7854
+
+[INFO](2023/10/17/ 04:52:20 PM) [Round: 0001] ...client 0001 is selected and updated (with total sample size: 300)! train_loss:0.7854284989206415
+[INFO](2023/10/17/ 04:52:53 PM) 	[Client 0000] ...finished training!            
+	=> Tain loss: 0.6766
+
+[INFO](2023/10/17/ 04:52:53 PM) [Round: 0001] ...client 0000 is selected and updated (with total sample size: 304)! train_loss:0.6765972969955519
+[INFO](2023/10/17/ 04:53:15 PM) 	[Client 0002] ...finished training!            
+	=> Tain loss: 0.8818
+
+[INFO](2023/10/17/ 04:53:15 PM) [Round: 0001] ...client 0002 is selected and updated (with total sample size: 301)! train_loss:0.881772055280836
+[INFO](2023/10/17/ 04:53:15 PM) [Round: 0001] Evaluate selected 3 clients' models...!
+[INFO](2023/10/17/ 04:53:18 PM) 	[Client 0001] ...finished evaluation!            
+	=> Test loss: 0.7552            
+	=> test_dice: 24.48%
+
+[INFO](2023/10/17/ 04:53:18 PM) 	 Saving best model, mean dice increased from: 0.0000 to 0.2448
+[INFO](2023/10/17/ 04:53:18 PM) 	 Saving to ./fedbestmodels/1/
+[INFO](2023/10/17/ 04:53:18 PM) 	[Client 0002] ...finished evaluation!            
+	=> Test loss: 0.5977            
+	=> test_dice: 40.23%
+
+[INFO](2023/10/17/ 04:53:18 PM) 	 Saving best model, mean dice increased from: 0.0000 to 0.4023
+[INFO](2023/10/17/ 04:53:18 PM) 	 Saving to ./fedbestmodels/2/
+[INFO](2023/10/17/ 04:53:18 PM) 	[Client 0000] ...finished evaluation!            
+	=> Test loss: 0.4444            
+	=> test_dice: 55.56%
+
+[INFO](2023/10/17/ 04:53:18 PM) 	 Saving best model, mean dice increased from: 0.0000 to 0.5556
+[INFO](2023/10/17/ 04:53:18 PM) 	 Saving to ./fedbestmodels/0/
+[INFO](2023/10/17/ 04:53:18 PM) [Round: 0001] Aggregate updated weights of 3 clients...!
+[INFO](2023/10/17/ 04:53:18 PM) [Round: 0001] ...updated weights of 3 clients are successfully averaged!
+[INFO](2023/10/17/ 04:53:20 PM) 	 Saving best model, mean dice increased from: 0.0000 to 0.2484
+[INFO](2023/10/17/ 04:53:20 PM) 	 Saving to ./global_model
+[INFO](2023/10/17/ 04:53:20 PM) [Round: 0001] Evaluate global model's performance...!                
+	[Server] ...finished evaluation!                
+	=> Loss: 0.7516                
+	=> Dice: 24.84%
+
+[INFO](2023/10/17/ 04:53:20 PM) [Round: 0002] Select clients...!
+[INFO](2023/10/17/ 04:53:20 PM) [Round: 0002] ...successfully transmitted models to 3 selected clients!
+[INFO](2023/10/17/ 04:53:20 PM) [Round: 0002] Start updating selected client 0000...!
+[INFO](2023/10/17/ 04:53:20 PM) [Round: 0002] Start updating selected client 0001...!
+[INFO](2023/10/17/ 04:53:20 PM) [Round: 0002] Start updating selected client 0002...!
+[INFO](2023/10/17/ 04:55:57 PM) 	[Client 0001] ...finished training!            
+	=> Tain loss: 0.2889
+
+[INFO](2023/10/17/ 04:55:57 PM) [Round: 0002] ...client 0001 is selected and updated (with total sample size: 300)! train_loss:0.28886636184822573
+[INFO](2023/10/17/ 04:56:31 PM) 	[Client 0000] ...finished training!            
+	=> Tain loss: 0.2754
+
+[INFO](2023/10/17/ 04:56:31 PM) [Round: 0002] ...client 0000 is selected and updated (with total sample size: 304)! train_loss:0.27536917348441325
+[INFO](2023/10/17/ 04:56:53 PM) 	[Client 0002] ...finished training!            
+	=> Tain loss: 0.4276
+
+[INFO](2023/10/17/ 04:56:53 PM) [Round: 0002] ...client 0002 is selected and updated (with total sample size: 301)! train_loss:0.4276022126800136
+[INFO](2023/10/17/ 04:56:53 PM) [Round: 0002] Evaluate selected 3 clients' models...!
+[INFO](2023/10/17/ 04:56:56 PM) 	[Client 0001] ...finished evaluation!            
+	=> Test loss: 0.6880            
+	=> test_dice: 31.20%
+
+[INFO](2023/10/17/ 04:56:56 PM) 	 Saving best model, mean dice increased from: 0.2448 to 0.3120
+[INFO](2023/10/17/ 04:56:56 PM) 	 Saving to ./fedbestmodels/1/
+[INFO](2023/10/17/ 04:56:56 PM) 	[Client 0002] ...finished evaluation!            
+	=> Test loss: 0.5694            
+	=> test_dice: 43.06%
+
+[INFO](2023/10/17/ 04:56:56 PM) 	 Saving best model, mean dice increased from: 0.4023 to 0.4306
+[INFO](2023/10/17/ 04:56:56 PM) 	 Saving to ./fedbestmodels/2/
+[INFO](2023/10/17/ 04:56:56 PM) 	[Client 0000] ...finished evaluation!            
+	=> Test loss: 0.3043            
+	=> test_dice: 69.57%
+
+[INFO](2023/10/17/ 04:56:57 PM) 	 Saving best model, mean dice increased from: 0.5556 to 0.6957
+[INFO](2023/10/17/ 04:56:57 PM) 	 Saving to ./fedbestmodels/0/
+[INFO](2023/10/17/ 04:56:57 PM) [Round: 0002] Aggregate updated weights of 3 clients...!
+[INFO](2023/10/17/ 04:56:57 PM) [Round: 0002] ...updated weights of 3 clients are successfully averaged!
+[INFO](2023/10/17/ 04:56:58 PM) 	 Saving best model, mean dice increased from: 0.0000 to 0.3918
+[INFO](2023/10/17/ 04:56:58 PM) 	 Saving to ./global_model
+[INFO](2023/10/17/ 04:56:58 PM) [Round: 0002] Evaluate global model's performance...!                
+	[Server] ...finished evaluation!                
+	=> Loss: 0.6082                
+	=> Dice: 39.18%
+
+[INFO](2023/10/17/ 04:56:59 PM) [Round: 0003] Select clients...!
+[INFO](2023/10/17/ 04:56:59 PM) [Round: 0003] ...successfully transmitted models to 3 selected clients!
+[INFO](2023/10/17/ 04:56:59 PM) [Round: 0003] Start updating selected client 0000...!
+[INFO](2023/10/17/ 04:56:59 PM) [Round: 0003] Start updating selected client 0001...!
+[INFO](2023/10/17/ 04:56:59 PM) [Round: 0003] Start updating selected client 0002...!
